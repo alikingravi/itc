@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ITC Compliance</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="Resource-type" content="Document" />
+	<style>
+		body{color: #fff;font-family: cambria;}
+		h2{color: #ffa735;}
+		.products h1{font-family: cambria; font-size: 40px; color: #fff; text-align: center;}
+		.products{background-color: #1f1f1f;padding: 40px;max-width: 960px;border-radius: 5px;margin-left: auto;margin-right: auto;margin-top: 20px;}
+		.error{color: red;}
+	</style>
+</head>
+
+<body>
+<section id="home">
+	<div class="products">
+		<h1>List of available Products</h1>
+		{loop="info"}
+			{if="$key!=='error'"}
+				<h2>Product ID: {$key}</h2>
+				{loop="$value"}
+					<li>{$key}: {$value}</li>
+				{/loop}
+
+			{else}	
+				<h2><span class="error">Errors: </span></h2>
+				{loop="$value"}
+					<li>{$key}: {$value}</li>
+				{/loop}
+			{/if}	
+		{/loop}
+	</div>
+</section>		
+</body>
+</html>
